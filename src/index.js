@@ -7,11 +7,11 @@ function run() {
   miro.initialize({
     extensionPoints: {
       toolbar: {
-        title: 'Template builder',
+        title: 'CX Table Import',
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-          miro.board.ui.openLibrary('builder.html', {title: 'Template builder'})
+          miro.board.ui.openLibrary('sidebar_content.html', {title: 'CX Table Import'})
         },
       },
     },
