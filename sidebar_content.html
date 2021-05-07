@@ -7,46 +7,40 @@
 
   <body>
     <div class="scrollable-container">
-      <button id="addRow" class="add-row-button" onclick="addRowInput('')">Add Row</button>
-      <div id="rows"></div>
-      <button id="submit" class="build-button">Build template</button>
+        <form action="">
+        <input type="file" id="myFile" name="filename">
+        <input type="Upload File">
+      </form>
     </div>
     <script src="https://miro.com/app/static/sdk.1.1.js"></script>
     <script src="src/builder.js"></script>
     <script>
-      const rowsContainer = document.getElementById('rows')
 
-      addRowInput('FRONT-END')
-      addRowInput('BACK-END')
-      addRowInput('DESIGN')
-      addRowInput('MARKETING')
+      function addImportFile(value) {
 
-      document.getElementById('submit').addEventListener('click', () => drawTemplate(getLabels()))
-
-      function addRowInput(value) {
-        const row = document.createElement('div')
-        row.classList.add('row')
-        rowsContainer.appendChild(row)
-
-        //create input
-        const input = document.createElement('input')
-        input.type = 'text'
-        input.classList.add('row-input')
-        input.value = value
-        row.appendChild(input)
-
-        //create delete button
-        const button = document.createElement('button')
-        button.textContent = 'Delete'
-        button.classList.add('delete-button')
-        button.addEventListener('click', () => {
-          row.remove()
-        })
-        row.appendChild(button)
       }
 
-      function getLabels() {
-        return Array.from(rowsContainer.querySelectorAll('input')).map((el) => el.value)
+      function csvJSON(csv){
+        const lines = csv.split("\n");
+        let result = [];
+        var headers=lines[0].split(",");
+
+        for( var i = 1; i < lines.length; i++ ){
+            var obj = {};
+            var currentline = lines[i].split(",");
+
+            for( var j = 0; j < headers.length; j++ ){
+                obj[headers[j]] = currentline[j];
+            }
+            result.push(obj);
+        }
+
+        //return result; //JavaScript object
+        return JSON.stringify(result); //JSON
+      }
+
+      function makeStickers() {
+        // return Array.from(rowsContainer.querySelectorAll('input')).map((el) => el.value)
       }
     </script>
   </body>
