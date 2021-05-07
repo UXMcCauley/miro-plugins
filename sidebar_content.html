@@ -7,7 +7,7 @@
 
   <body>
     <div class="scrollable-container">
-        <form action="">
+      <form onsubmit="csvJSON(myUploadedFile)">
         <input type="file" id="myFile" name="filename">
         <input type="Upload File">
       </form>
@@ -15,7 +15,7 @@
     <script src="https://miro.com/app/static/sdk.1.1.js"></script>
     <script src="src/builder.js"></script>
     <script>
-
+      var myUploadedFile = document.getElementById("myFile").files[0];
       function addImportFile(value) {
 
       }
@@ -34,9 +34,10 @@
             }
             result.push(obj);
         }
-
+        console.log(result)
         //return result; //JavaScript object
         return JSON.stringify(result); //JSON
+
       }
 
       function makeStickers() {
