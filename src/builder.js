@@ -31,6 +31,8 @@ function makeWidgets (data, filter, color) {
     miro.board.widgets.create({
       type: "sticker",
       text: data[i][filter],
+      x: 100,
+      y: 100,
       style: {
         backgroundColor: mapColor(data[i][color])
       }
