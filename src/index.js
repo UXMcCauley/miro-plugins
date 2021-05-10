@@ -16,6 +16,10 @@ function run() {
       },
     },
   })
+
+  miro.addEventListener('WIDGETS_CREATED', widget => {
+    console.log(widget.length)
+  })
 }
 
 miro.onReady(run)
