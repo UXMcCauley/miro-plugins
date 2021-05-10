@@ -27,7 +27,7 @@ $('#form').on('submit', function (e) {
 function makeWidgets (data, filter, color) {
   let rowMarker, columnMarker = 0;
   for (var i = 0; i < data.length; i++) {
-    if( ( i + 1 ) % 10 === 0 ){
+    if( ( i + 1 ) % 10 == 0 ){
       columnMarker = 0
       rowMarker++
     } else {
