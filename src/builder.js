@@ -9,7 +9,7 @@ $('#form').on('submit', function (e) {
       complete: function (results) {
         if(results) {
           makeDataArray(results.data);
-          makeWidgets(allData);
+          makeWidgets(allData, "Comment", "Pink");
         } else {
           Alert("Oh no! A thing happened that we're not too sure about. Try again, friend.")
         }
@@ -24,10 +24,17 @@ $('#form').on('submit', function (e) {
   $('#fileItem').val("");
 });
 
-function makeWidgets (data) {
-  // miro.board.widgets.create();
+function makeWidgets (data, filter, color) {
+
   for (var i = 0; i < data.length; i++) {
     console.log(data[i]);
+    miro.board.widgets.create({
+      type: "sticker",
+      text: data[i][filter],
+      style: {
+        backgroundColor: mapColor(data[i][color])
+      }
+    });
   }
 }
 
