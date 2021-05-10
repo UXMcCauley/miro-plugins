@@ -36,7 +36,6 @@ function makeWidgets (data, filter, color) {
     miro.board.widgets.create({
       "type": "sticker",
       "text": data[i][filter],
-      "width": size,
       "x": ( 220 * columnMarker ),
       "y": ( 220 * rowMarker ),
       "style": {
