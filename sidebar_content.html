@@ -3,49 +3,26 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="src/styles.css" />
-  </head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="src/papaparse.min.js"></script>
+<script src="https://miro.com/app/static/sdk.1.1.js"></script>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
 
-  <body>
-    <div class="scrollable-container">
-      <form onsubmit="csvJSON(myUploadedFile)">
-        <input type="file" id="myFile" name="filename">
-        <button type="submit">Upload File</button
-      </form>
-    </div>
-    <script src="https://miro.com/app/static/sdk.1.1.js"></script>
-    <script src="src/builder.js"></script>
-    <script>
-      var myUploadedFile = document.getElementById("myFile").files[0];
-      function addImportFile(value) {
+<body>
+  <div style="padding: 20px;">
+    <h2>Upload a CSV</h2>
+    <form id="form">
+      <input id="fileItem" type="file" />
+      <button type="submit">Send</button>
+    </form>
 
-      }
+  </div>
 
-      function csvJSON(csv){
-        const lines = csv.split("\n");
-        let result = [];
-        var headers=lines[0].split(",");
+  <script src="src/builder.js"></script>
 
-        for( var i = 1; i < lines.length; i++ ){
-            var obj = {};
-            var currentline = lines[i].split(",");
+</body>
 
-            for( var j = 0; j < headers.length; j++ ){
-                obj[headers[j]] = currentline[j];
-            }
-            result.push(obj);
-        }
-        console.log(result)
-        //return result; //JavaScript object
-        return JSON.stringify(result); //JSON
-
-      }
-
-      function makeStickers() {
-        // return Array.from(rowsContainer.querySelectorAll('input')).map((el) => el.value)
-      }
-    </script>
-  </body>
 </html>
