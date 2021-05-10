@@ -24,20 +24,21 @@ $('#form').on('submit', function (e) {
   $('#fileItem').val("");
 });
 
-function makeWidgets (data, filter, color, size) {
-  let rowMarker = 0;
+function makeWidgets (data, filter, color) {
+  let rowMarker, columnMarker = 0;
   for (var i = 0; i < data.length; i++) {
     if( ( i + 1 ) % 10 === 0 ){
+      columnMarker = 0
       rowMarker++
+    } else {
+      columnMarker++
     }
-    console.log(mapColor(data[i][color]))
-
     miro.board.widgets.create({
       "type": "sticker",
       "text": data[i][filter],
       "width": size,
-      "x": ( size * i ) + 10,
-      "y": ( size * rowMarker ) + 10,
+      "x": ( 220 * columnMarker ),
+      "y": ( 220 * rowMarker ),
       "style": {
         "backgroundColor": mapColor(data[i][color])
       }
