@@ -24,20 +24,24 @@ $('#form').on('submit', function (e) {
   $('#fileItem').val("");
 });
 
-function makeWidgets (data, filter, color, width) {
-
+function makeWidgets (data, filter, color, size) {
+  let rowMarker = 0;
   for (var i = 0; i < data.length; i++) {
-    console.log(data[i]);
+    if( ( i + 1 ) % 10 === 0 ){
+      rowMarker++
+    }
+    console.log(mapColor(data[i][color]))
+
     miro.board.widgets.create({
       "type": "sticker",
       "text": data[i][filter],
-      "width": width,
-      "x": (width * i) + 10,
-      "y": 100,
+      "width": size,
+      "x": ( size * i ) + 10,
+      "y": ( size * rowMarker ) + 10,
       "style": {
         "backgroundColor": mapColor(data[i][color])
       }
-    });
+    })
   }
 }
 
@@ -63,9 +67,6 @@ function makeDataArray (data) {
 function mapColor (color) {
   let stickyColor;
   switch (color) {
-    case "Yellow":
-      stickyColor = "#fff9b1";
-      break;
     case "White":
       stickyColor = "#f5f6f8";
       break;
