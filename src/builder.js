@@ -1,3 +1,5 @@
+const allData = new Array;
+
 $('#form').on('submit', function (e) {
   e.preventDefault();
 
@@ -7,6 +9,7 @@ $('#form').on('submit', function (e) {
       complete: function (results) {
         if(results) {
           makeDataArray(results.data);
+          makeWidgets(allData);
         } else {
           Alert("Oh no! A thing happened that we're not too sure about. Try again, friend.")
         }
@@ -23,11 +26,16 @@ $('#form').on('submit', function (e) {
 
 function makeWidgets (data) {
   // miro.board.widgets.create();
-  console.log(data[0]);
+  for (var i = 0; i < data.length; i++) {
+    console.log(data[i]);
+  }
+}
+
+function groupBy (value) {
+
 }
 
 function makeDataArray (data) {
-  let allData = new Array;
   const dataKeys = data[0];
   for (var i = 0; i < data.length; i++) {
     let currentObject = new Object;
@@ -39,7 +47,6 @@ function makeDataArray (data) {
     allData.push(currentObject);
   };
   allData.splice(0,1);
-  console.log(allData);
   return allData;
 }
 
