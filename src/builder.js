@@ -9,7 +9,7 @@ $('#form').on('submit', function (e) {
       complete: function (results) {
         if(results) {
           makeDataArray(results.data);
-          makeWidgets(allData, "Comment", "Sticky Color");
+          makeWidgets(allData, "sticker", "Comment", "Sticky Color");
         } else {
           Alert("Oh no! A thing happened that we're not too sure about. Try again, friend.")
         }
@@ -24,7 +24,7 @@ $('#form').on('submit', function (e) {
   $('#fileItem').val("");
 });
 
-function makeWidgets (data, filter, color) {
+function makeWidgets (data, widgetType filter, color) {
 
   let vertical = 0;
   let horizontal = 0;
@@ -71,7 +71,7 @@ function makeWidgets (data, filter, color) {
       vertical++
     }
     miro.board.widgets.create({
-      "type": "shape",
+      "type": widgetType,
       "text": data[i][filter],
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
