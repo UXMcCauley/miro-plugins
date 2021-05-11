@@ -24,7 +24,7 @@ $('#form').on('submit', function (e) {
   $('#fileItem').val("");
 });
 
-function makeWidgets (data, widgetType filter, color) {
+function makeWidgets (data, widgetType, filter, color) {
 
   let vertical = 0;
   let horizontal = 0;
