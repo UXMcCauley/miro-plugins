@@ -9,3 +9,14 @@ span {
   padding: 6px;
   display: block;
 }
+#app {
+  position: relative;
+}
+.testSquare {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  background-color: pink;
+  display: inline-block;
+  position: absolute;
+}
