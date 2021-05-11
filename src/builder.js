@@ -8,10 +8,8 @@ $('#form').on('submit', function (e) {
     Papa.parse(file, {
       complete: function (results) {
         if(results) {
-          makeDataArray(results.data, function () {
-            makeWidgets(allData, "Comment", "Sticky Color", 50);
-          });
-
+          makeDataArray(results.data);
+          makeWidgets(allData, "Comment", "Sticky Color");
         } else {
           Alert("Oh no! A thing happened that we're not too sure about. Try again, friend.")
         }
@@ -37,7 +35,7 @@ function makeWidgets (data, filter, color) {
     if( ( i ) % 10 === 0 ){
       vertical++
     }
-    console.log( data[i][color], mapColor( data[i][color] ) );
+    console.log( data[i][color] );
     miro.board.widgets.create({
       "type": "sticker",
       "text": data[i][filter],
@@ -61,7 +59,7 @@ function groupBy (value) {
 
 }
 
-function makeDataArray (data, callback) {
+function makeDataArray (data) {
   // console.log(data);
   const dataKeys = data[0];
   for (var i = 0; i < data.length; i++) {
@@ -74,7 +72,6 @@ function makeDataArray (data, callback) {
     allData.push(currentObject);
   };
   allData.splice(0,1);
-  callback();
 }
 
 function mapColor (color) {
