@@ -42,7 +42,7 @@ function makeWidgets (data, filter, color) {
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
       "style": {
-        "backgroundColor": "#" + mapColor( data[i][color] )
+        "backgroundColor": data[i][color]
       }
     })
 
