@@ -37,14 +37,14 @@ function makeWidgets (data, filter, color) {
     if( ( i ) % 10 === 0 ){
       vertical++
     }
-
+    console.log( mapColor( data[i][color] ) );
     miro.board.widgets.create({
       "type": "sticker",
       "text": data[i][filter],
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
       "style": {
-        "backgroundColor": mapColor(data[i][color])
+        "backgroundColor": "#" + mapColor( data[i][color] )
       }
     })
 
@@ -81,40 +81,40 @@ function mapColor (color) {
   let stickyColor;
   switch (color) {
     case "White":
-      stickyColor = "#f5f6f8";
+      stickyColor = "f5f6f8";
       break;
     case "Light Orange":
-      stickyColor = "#f5d128";
+      stickyColor = "f5d128";
       break;
     case "Olive":
-      stickyColor = "#d0e17a";
+      stickyColor = "d0e17a";
       break;
     case "Green":
-      stickyColor = "#d5f692";
+      stickyColor = "d5f692";
       break;
     case "Pastel Blue":
-      stickyColor = "#a6ccf5";
+      stickyColor = "a6ccf5";
       break;
     case "Aqua":
-      stickyColor = "#67c6c0";
+      stickyColor = "67c6c0";
       break;
     case "Blue":
-      stickyColor = "#23bfe7";
+      stickyColor = "23bfe7";
       break;
     case "Orange":
-      stickyColor = "#23bfe7";
+      stickyColor = "23bfe7";
       break;
     case "Pink":
-      stickyColor = "#ea94bb";
+      stickyColor = "ea94bb";
       break;
     case "Red":
-      stickyColor = "#f16c7f";
+      stickyColor = "f16c7f";
       break;
     case "Purple":
-      stickyColor = "#b384bb";
+      stickyColor = "b384bb";
       break;
     default:
-      stickyColor = "#fff9b1";
+      stickyColor = "fff9b1";
   }
   return stickyColor;
 }
