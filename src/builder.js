@@ -76,7 +76,7 @@ function makeWidgets (data, filter, color) {
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
       "style": {
-        "backgroundColor": stickyColor
+        "backgroundColor": "#d5f692"
       }
     })
 
