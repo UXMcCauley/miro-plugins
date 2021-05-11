@@ -75,6 +75,7 @@ function makeWidgets (data, filter, color) {
       "text": data[i][filter],
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
+      "backgroundColor": "#d5f692",
       "style": {
         "backgroundColor": "#d5f692"
       }
