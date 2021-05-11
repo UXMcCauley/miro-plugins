@@ -37,7 +37,7 @@ function makeWidgets (data, filter, color) {
     if( ( i ) % 10 === 0 ){
       vertical++
     }
-    console.log( mapColor( data[i][color] ) );
+    console.log( data[i][color], mapColor( data[i][color] ) );
     miro.board.widgets.create({
       "type": "sticker",
       "text": data[i][filter],
@@ -113,8 +113,6 @@ function mapColor (color) {
     case "Purple":
       stickyColor = "b384bb";
       break;
-    default:
-      stickyColor = "fff9b1";
   }
   return stickyColor;
 }
