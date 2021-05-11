@@ -35,7 +35,6 @@ function makeWidgets (data, filter, color) {
     if( ( i ) % 10 === 0 ){
       vertical++
     }
-    console.log( data[i][color] );
     miro.board.widgets.create({
       "type": "sticker",
       "text": data[i][filter],
