@@ -30,6 +30,41 @@ function makeWidgets (data, filter, color) {
   let horizontal = 0;
 
   for (var i = 0; i < data.length; i++) {
+    let stickyColor;
+    switch (data[i][color]) {
+      case "White":
+        stickyColor = "#f5f6f8";
+        break;
+      case "Light Orange":
+        stickyColor = "#f5d128";
+        break;
+      case "Olive":
+        stickyColor = "#d0e17a";
+        break;
+      case "Green":
+        stickyColor = "#d5f692";
+        break;
+      case "Pastel Blue":
+        stickyColor = "#a6ccf5";
+        break;
+      case "Aqua":
+        stickyColor = "#67c6c0";
+        break;
+      case "Blue":
+        stickyColor = "#23bfe7";
+        break;
+      case "Orange":
+        stickyColor = "#23bfe7";
+        break;
+      case "Pink":
+        stickyColor = "#ea94bb";
+        break;
+      case "Red":
+        stickyColor = "#f16c7f";
+        break;
+      case "Purple":
+        stickyColor = "#b384bb";
+        break;
 
     // check to see of the remainder of iteration divided by 10 is 0 - new row if it is.
     if( ( i ) % 10 === 0 ){
@@ -41,7 +76,7 @@ function makeWidgets (data, filter, color) {
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
       "style": {
-        "backgroundColor": data[i][color]
+        "backgroundColor": stickyColor
       }
     })
 
