@@ -4,6 +4,9 @@ $('#testClick').on("click", function () {
     "type": "sticker",
     "text": "Test Sticker Here",
     "x": 0,
-    "y": 0
+    "y": 0,
+    style: {
+      "backgroundColor": "#ea94bb"
+    }
   })
 })
