@@ -72,11 +72,6 @@ function makeWidgets (data, widgetType, filter, color) {
     }
     miro.board.widgets.create({
       "type": widgetType,
-      "style": {
-        "backgroundColor": "#ea94bb",
-        "fontFamily": "Bangers",
-        "textAlign": "right"
-      },
       "text": data[i][filter],
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical )
