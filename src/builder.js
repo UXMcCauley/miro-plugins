@@ -72,12 +72,14 @@ function makeWidgets (data, widgetType, filter, color) {
     }
     miro.board.widgets.create({
       "type": widgetType,
+      "style": {
+        "backgroundColor": "#ea94bb",
+        "fontFamily": "Bangers",
+        "textAlign": "right"
+      },
       "text": data[i][filter],
       "x": ( 220 * horizontal ),
-      "y": ( 220 * vertical ),
-      "style": {
-        "backgroundColor": "#ea94bb"
-      }
+      "y": ( 220 * vertical )
     })
 
     // check to see if the remainder of iteration +1 divided by 10 is 0 - new column if it is.
