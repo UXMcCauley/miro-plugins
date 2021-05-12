@@ -1,5 +1,5 @@
 $('#testClick').on("click", function () {
-  console.log(this);
+  console.log(v1);
   miro.board.widgets.create({
     "type": "sticker",
     "text": "Test Sticker Here",
