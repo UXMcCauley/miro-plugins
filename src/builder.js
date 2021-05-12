@@ -1,4 +1,4 @@
-$('.testClick').on("click", function () {
+$('#testClick').on("click", function () {
   miro.board.widgets.create({
     "type": "sticker",
     "style": {
