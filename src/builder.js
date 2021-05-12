@@ -1,12 +1,10 @@
 $('#testClick').on("click", function () {
-  console.log("v1");
+  console.log("v1.1");
   miro.board.widgets.create({
-    "type": "sticker",
-    "text": "Test Sticker Here",
-    "x": 0,
-    "y": 0,
+    "type": "card",
+    "title": "developer card",
     "style": {
-      "backgroundColor": "#ea94bb"
+      "backgroundColor": "#ff00ff"
     }
   })
 })
