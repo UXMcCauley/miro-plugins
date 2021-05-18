@@ -9,7 +9,7 @@ $('#form').on('submit', function (e) {
       complete: function (results) {
         if(results) {
           makeDataArray(results.data);
-          makeWidgets(allData, "sticker", "Comment", "Sticky Color");
+          makeStickers(allData, "Comment", "Sticky Color");
         } else {
           Alert("Oh no! A thing happened that we're not too sure about. Try again, friend.")
         }
@@ -24,7 +24,7 @@ $('#form').on('submit', function (e) {
   $('#fileItem').val("");
 });
 
-function makeWidgets (data, widgetType, filter, color) {
+function makeStickers (data, contentColumnTitle, colorColumnTitle) {
 
   let vertical = 0;
   let horizontal = 0;
@@ -36,10 +36,10 @@ function makeWidgets (data, widgetType, filter, color) {
     }
     miro.board.widgets.create({
       "type": "sticker",
-      "text": data[i][filter],
+      "text": data[i][contentColumnTitle],
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
-      "stickerBackgroundColor": mapStickyColor(data[i][color])
+      "stickerBackgroundColor": mapStickyColor(data[i][colorColumnTitle])
     })
 
     // check to see if the remainder of iteration +1 divided by 10 is 0 - new column if it is.
