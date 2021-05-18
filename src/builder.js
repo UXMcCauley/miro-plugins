@@ -1,4 +1,5 @@
 const allData = new Array;
+let allWidgets;
 const stickerColors = {
   "White": "#f5f6f8",
   "Light Orange": "#f5d128",
@@ -24,7 +25,7 @@ $('#form').on('submit', function (e) {
         if(results) {
           makeDataArray(results.data);
           makeStickers(allData, "Comment", "Sticky Color");
-          addStickerTags();
+          // addStickerTags();
         } else {
           Alert("Oh no! A thing happened that we're not too sure about. Try again, friend.")
         }
@@ -66,11 +67,12 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
       horizontal++
     }
   }
+  allWidgets = miro.board.widgets.list();
 }
 
-function addStickerTags () {
+async function addStickerTags () {
   let allStickers = miro.board.widgets.get({type: 'sticker'});
-  miro.board.tags.create({title: 'Red tag', color: '#F24726', widgetIds: allStickers});
+  await miro.board.tags.create({title: 'Red tag', color: '#F24726', widgetIds: allStickers});
 }
 
 function makeDataArray (data) {
