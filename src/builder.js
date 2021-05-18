@@ -10,6 +10,7 @@ $('#form').on('submit', function (e) {
         if(results) {
           makeDataArray(results.data);
           makeStickers(allData, "Comment", "Sticky Color");
+          addStickerTags();
         } else {
           Alert("Oh no! A thing happened that we're not too sure about. Try again, friend.")
         }
@@ -53,8 +54,9 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
   }
 }
 
-function groupBy (value) {
-
+function addStickerTags () {
+  let allStickers = await miro.board.widgets.get({type: 'sticker'});
+  miro.board.tags.create({title: 'Red tag', color: '#F24726', widgetIds: allStickers});
 }
 
 function mapStickyColor (color) {
