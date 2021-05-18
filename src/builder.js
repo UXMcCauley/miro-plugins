@@ -54,7 +54,7 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
   }
 }
 
-function addStickerTags () {
+async function addStickerTags () {
   let allStickers = await miro.board.widgets.get({type: 'sticker'});
   miro.board.tags.create({title: 'Red tag', color: '#F24726', widgetIds: allStickers});
 }
