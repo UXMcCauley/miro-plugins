@@ -58,6 +58,8 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
       style: {
         "stickerBackgroundColor": stickerColors[ data[i][colorColumnTitle] ]
       }
+    }).then((data) => {
+      console.log(data);
     })
 
     // check to see if the remainder of iteration +1 divided by 10 is 0 - new column if it is.
@@ -67,10 +69,10 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
       horizontal++
     }
   }
-  allWidgets = miro.board.widgets.list();
+  allWidgets = miro.board.widgets.get();
 }
 
-async function addStickerTags () {
+async function addStickerTags() {
   let allStickers = miro.board.widgets.get({type: 'sticker'});
   await miro.board.tags.create({title: 'Red tag', color: '#F24726', widgetIds: allStickers});
 }
