@@ -1,5 +1,5 @@
 const allData = new Array;
-const stickerColors = [
+const stickerColors = {
   "White": "#f5f6f8",
   "Light Orange": "#f5d128",
   "Olive": "#d0e17a",
@@ -11,8 +11,7 @@ const stickerColors = [
   "Pink": "#ea94bb",
   "Red": "#f16c7f",
   "Purple": "#b384bb"
-
-]
+}
 
 $('#form').on('submit', function (e) {
   e.preventDefault();
