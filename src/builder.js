@@ -59,7 +59,9 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
         "stickerBackgroundColor": stickerColors[ data[i][colorColumnTitle] ]
       }
     }).then((data) => {
+      let tags = [];
       console.log(data);
+      miro.board.tags.create({title: 'Red tag', color: '#F24726', widgetIds: data.id});
     })
 
     // check to see if the remainder of iteration +1 divided by 10 is 0 - new column if it is.
