@@ -30,8 +30,34 @@ function makeWidgets (data, widgetType, filter, color) {
   let horizontal = 0;
 
   for (var i = 0; i < data.length; i++) {
-    let stickyColor;
-    switch (data[i][color]) {
+    // check to see of the remainder of iteration divided by 10 is 0 - new row if it is.
+    if( ( i ) % 10 === 0 ){
+      vertical++
+    }
+    miro.board.widgets.create({
+      "type": "sticker",
+      "text": data[i][filter],
+      "x": ( 220 * horizontal ),
+      "y": ( 220 * vertical ),
+      "stickerBackgroundColor": mapStickyColor(data[i][color])
+    })
+
+    // check to see if the remainder of iteration +1 divided by 10 is 0 - new column if it is.
+    if( ( i + 1 ) % 10 === 0 ){
+      horizontal = 0
+    } else {
+      horizontal++
+    }
+  }
+}
+
+function groupBy (value) {
+
+}
+
+function mapStickyColor (color) {
+  let stickyColor;
+    switch (color) {
       case "White":
         stickyColor = "#f5f6f8";
         break;
@@ -65,34 +91,8 @@ function makeWidgets (data, widgetType, filter, color) {
       case "Purple":
         stickyColor = "#b384bb";
         break;
-}
-    // check to see of the remainder of iteration divided by 10 is 0 - new row if it is.
-    if( ( i ) % 10 === 0 ){
-      vertical++
-    }
-    miro.board.widgets.create({
-      "type": "sticker",
-      "style": {
-        "backgroundColor": "#ea94bb",
-        "fontFamily": "Bangers",
-        "textAlign": "right"
-      },
-      "text": data[i][filter],
-      "x": ( 220 * horizontal ),
-      "y": ( 220 * vertical )
-    })
-
-    // check to see if the remainder of iteration +1 divided by 10 is 0 - new column if it is.
-    if( ( i + 1 ) % 10 === 0 ){
-      horizontal = 0
-    } else {
-      horizontal++
-    }
-  }
-}
-
-function groupBy (value) {
-
+      }
+      return stickyColor;
 }
 
 function makeDataArray (data) {
