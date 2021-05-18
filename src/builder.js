@@ -1,9 +1,24 @@
 const allData = new Array;
+const stickerColors = [
+  "White": "#f5f6f8",
+  "Light Orange": "#f5d128",
+  "Olive": "#d0e17a",
+  "Green": "#d5f692",
+  "Pastel Blue": "#a6ccf5",
+  "Aqua": "#67c6c0",
+  "Blue": "#23bfe7",
+  "Orange": "#23bfe7",
+  "Pink": "#ea94bb",
+  "Red": "#f16c7f",
+  "Purple": "#b384bb"
+
+]
 
 $('#form').on('submit', function (e) {
   e.preventDefault();
 
   var file = document.getElementById('fileItem').files[0];
+
   if(file){
     Papa.parse(file, {
       complete: function (results) {
@@ -41,7 +56,7 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
       style: {
-        "stickerBackgroundColor": mapStickyColor(data[i][colorColumnTitle])
+        "stickerBackgroundColor": stickerColors[ data[i][colorColumnTitle] ]
       }
     })
 
@@ -57,46 +72,6 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
 async function addStickerTags () {
   let allStickers = await miro.board.widgets.get({type: 'sticker'});
   miro.board.tags.create({title: 'Red tag', color: '#F24726', widgetIds: allStickers});
-}
-
-function mapStickyColor (color) {
-  let stickyColor;
-    switch (color) {
-      case "White":
-        stickyColor = "#f5f6f8";
-        break;
-      case "Light Orange":
-        stickyColor = "#f5d128";
-        break;
-      case "Olive":
-        stickyColor = "#d0e17a";
-        break;
-      case "Green":
-        stickyColor = "#d5f692";
-        break;
-      case "Pastel Blue":
-        stickyColor = "#a6ccf5";
-        break;
-      case "Aqua":
-        stickyColor = "#67c6c0";
-        break;
-      case "Blue":
-        stickyColor = "#23bfe7";
-        break;
-      case "Orange":
-        stickyColor = "#23bfe7";
-        break;
-      case "Pink":
-        stickyColor = "#ea94bb";
-        break;
-      case "Red":
-        stickyColor = "#f16c7f";
-        break;
-      case "Purple":
-        stickyColor = "#b384bb";
-        break;
-      }
-      return stickyColor;
 }
 
 function makeDataArray (data) {
