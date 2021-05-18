@@ -39,7 +39,9 @@ function makeStickers (data, contentColumnTitle, colorColumnTitle) {
       "text": data[i][contentColumnTitle],
       "x": ( 220 * horizontal ),
       "y": ( 220 * vertical ),
-      "stickerBackgroundColor": mapStickyColor(data[i][colorColumnTitle])
+      style: {
+        "stickerBackgroundColor": mapStickyColor(data[i][colorColumnTitle])
+      }
     })
 
     // check to see if the remainder of iteration +1 divided by 10 is 0 - new column if it is.
